@@ -1,0 +1,23 @@
+h1 = @agent.full_name
+p = @agent.bio
+
+= link_to "Add Transaction", new_agent_uploaded_transaction_path(@agent), class: "btn btn-primary"
+
+h3 Recent Transactions
+table
+  thead
+    tr
+      th Address
+      th Listed
+      th Listing Price
+      th Sold
+      th Selling Price
+      th
+  tbody
+    - @uploaded_transactions.each do |uploaded_transaction|
+      tr
+        td = uploaded_transaction.full_address
+        td = uploaded_transaction.listing_date
+        td = uploaded_transaction.listing_price
+        td = uploaded_transaction.selling_date
+        td = uploaded_transaction.selling_price

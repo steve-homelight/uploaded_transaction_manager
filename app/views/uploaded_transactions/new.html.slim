@@ -1,0 +1,35 @@
+h1 New Transaction
+
+= form_for [@agent, @uploaded_transaction] do |f|
+  .form-group
+    = f.label :address
+    = f.text_field :address, class: "form-control"
+  .form-group
+    = f.label :city
+    = f.text_field :city, class: "form-control"
+  .form-group
+    = f.label :state
+    = f.text_field :state, class: "form-control"
+  .form-group
+    = f.label :zip
+    = f.text_field :zip, class: "form-control"
+  .form-group
+    = f.label :listing_date
+    = f.text_field :listing_date, class: "form-control"
+  .form-group
+    = f.label :listing_price
+    = f.text_field :listing_price, class: "form-control"
+  .form-group
+    = f.label :selling_date
+    = f.text_field :selling_date, class: "form-control"
+  .form-group
+    = f.label :selling_price
+    = f.text_field :selling_price, class: "form-control"
+  .form-group
+    = f.label :status
+    = f.select :status, %w(sold pending closed cancelled expired active)
+  .form-group
+    = f.label :property_type
+    = f.select :property_type, %w(condo single_family_home multi_family_home commercial mobile_home land)
+
+  = f.submit "Save", class: "btn btn-primary"

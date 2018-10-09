@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Uploaded Transactions Manager</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">HomeLight</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agents</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <% Agent.all.each do |agent| %>
+                  <a class="dropdown-item" href="<%= agent_path(agent) %>"><%= agent.full_name %></a>
+                <% end %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
