@@ -8,7 +8,7 @@ p = @agent.bio
   = f.submit "Import CSV", class: "btn btn-success"
 
 h3 Recent Transactions
-table
+table.container
   thead
     tr
       th Address
@@ -25,4 +25,4 @@ table
         td = uploaded_transaction.listing_price
         td = uploaded_transaction.selling_date
         td = uploaded_transaction.selling_price
-= paginate @uploaded_transactions
+.container.pagination.justify-content-center = paginate @uploaded_transactions
