@@ -9,7 +9,7 @@ class UploadedTransactionsController < ApplicationController
     @uploaded_transaction = @agent.uploaded_seller_transactions.create(uploaded_transaction_params)
     puts "creating ..."
     if @uploaded_transaction.save
-      redirect_to agent_path(agent), notice: "Transaction saved!"
+      redirect_to agent_path(@agent), notice: "Transaction saved!"
     else
       render "new"
     end
