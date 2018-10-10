@@ -2,8 +2,7 @@ h1 New Transaction!
 
 - if @uploaded_transaction.errors.any?
   #error_explanation
-    h2 = pluralize(@uploaded_transaction.errors.count, "error")
-      span  prohibited this article from being saved:
+    h5 = pluralize(@uploaded_transaction.errors.count, "error") + " prohibited this article from being saved:"
     ul
       - @uploaded_transaction.errors.full_messages.each do |msg|
         li.alert.alert-danger = msg
@@ -23,13 +22,13 @@ h1 New Transaction!
     = f.text_field :zip, class: "form-control"
   .form-group
     = f.label :listing_date
-    = f.text_field :listing_date, class: "form-control"
+    = f.date_field :listing_date, class: "form-control"
   .form-group
     = f.label :listing_price
     = f.text_field :listing_price, class: "form-control"
   .form-group
     = f.label :selling_date
-    = f.text_field :selling_date, class: "form-control"
+    = f.date_field :selling_date, class: "form-control"
   .form-group
     = f.label :selling_price
     = f.text_field :selling_price, class: "form-control"
