@@ -17,7 +17,7 @@ class UploadedTransactionsController < ApplicationController
 
   def import_from_csv
     UploadedTransaction.import_from_csv(params[:file])
-    redirect_to root_url, notice: "File imported!"
+    redirect_to agent_path(params[:agent_id]), notice: "File imported!"
   end
 
   private

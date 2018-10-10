@@ -16,10 +16,11 @@ class UploadedTransaction < ApplicationRecord
     CSV.foreach(file.path, headers: true) do |row|
       row = row.to_hash
       transaction = find_or_initialize_by(
-        address: row[:address],
-        zip: row[:zip],
-        selling_date: row[:selling_date]
+        address: row["address"],
+        zip: row["zip"],
+        selling_date: row["selling_date"]
       )
+      byebug
       create(row) if transaction.new_record?
     end
   end
