@@ -1,4 +1,14 @@
-h1 New Transaction
+h1 New Transaction!
+
+= if @uploaded_transaction.errors.any?
+  #error_explanation
+    h2 
+      = pluralize(@uploaded_transaction.errors.count, "error")
+      prohibited this article from being saved:
+    ul
+      = @uploaded_transaction.errors.full_messages.each do |msg|
+        li
+        = msg
 
 = form_for [@agent, @uploaded_transaction] do |f|
   .form-group
