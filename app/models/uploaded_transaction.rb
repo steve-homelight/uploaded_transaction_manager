@@ -12,9 +12,15 @@ class UploadedTransaction < ApplicationRecord
   end
 
   def self.import_from_csv(file)
-    successes, failures = 0, 0
+    successes = 0, 0
     CSV.foreach(file.path, headers: true) do |row|
-      puts row.to_hash
+      row = row.to_hash
+      transaction = find_or_initialize_by(
+        address: row[:address],
+        zip: row[:zip],
+        selling_date: row[:selling_date]
+      )
+      create(row) if transaction.new_record?
     end
   end
 end
