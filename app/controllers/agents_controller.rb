@@ -1,7 +1,7 @@
 class AgentsController < ApplicationController
   def show
     @agent = Agent.find(params[:id])
-    @uploaded_transactions = @agent.all_transactions
+    @uploaded_transactions = @agent.all_transactions.page(params[:page])
   end
 
   def random_agent
