@@ -23,11 +23,11 @@ h1.text-center Create a Transaction
         = f.label :zip
         = f.text_field :zip, class: "form-control", required: true
       .form-group.form-check
-        = f.check_box :selling_agent_id, { class: "form-check-input" }, 
+        = f.check_box :selling_agent_id, { class: "form-check-input", checked: false }, 
             check_value = @agent.id, unchecked_value = "" 
         = f.label :selling_agent_id, "check if you are the selling agent", class: "form-check-label"
       .form-group.form-check
-        = f.check_box :listing_agent_id, { class: "form-check-input" }, 
+        = f.check_box :listing_agent_id, { class: "form-check-input", checked: false },
             checked_value = @agent.id, unchecked_value = ""
         = f.label :listing_agent_id, "check if you are the listing agent", class: "form-check-label"
     .col-md-6
