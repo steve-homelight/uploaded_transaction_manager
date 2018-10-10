@@ -7,6 +7,10 @@ class UploadedTransaction < ApplicationRecord
   scope :single_family_homes, -> { where(property_type: "single_family_home") }
   scope :sold, -> { where(status: "sold") }
 
+  validates :address, :zip, :selling_date, presence: true
+  validates_uniqueness_of :address, scope: [:zip, :selling_date],
+    message: "with this property, zip, and selling date already exists."
+
   def full_address
     "#{address}, #{city}, #{state} #{zip}"
   end
