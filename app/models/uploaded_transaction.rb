@@ -1,4 +1,6 @@
 class UploadedTransaction < ApplicationRecord
+  require 'csv'
+
   belongs_to :listing_agent, required: false, class_name: "Agent"
   belongs_to :selling_agent, required: false, class_name: "Agent"
 
@@ -7,5 +9,12 @@ class UploadedTransaction < ApplicationRecord
 
   def full_address
     "#{address}, #{city}, #{state} #{zip}"
+  end
+
+  def self.import_from_csv(file)
+    successes, failures = 0, 0
+    CSV.foreach(file.path, headers: true) do |row|
+      puts row.to_hash
+    end
   end
 end

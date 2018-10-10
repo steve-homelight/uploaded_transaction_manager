@@ -3,6 +3,10 @@ p = @agent.bio
 
 = link_to "Add Transaction", new_agent_uploaded_transaction_path(@agent), class: "btn btn-primary"
 
+= form_with url: agent_import_from_csv_path(@agent) do |f|
+  = f.file_field :file, class: "btn"
+  = f.submit "Import CSV", class: "btn btn-success"
+
 h3 Recent Transactions
 table
   thead

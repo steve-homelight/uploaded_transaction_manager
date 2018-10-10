@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resources :agents do
     resources :uploaded_transactions
+    post '/import_from_csv', to: 'uploaded_transactions#import_from_csv'
   end
 end
