@@ -20,7 +20,6 @@ class UploadedTransaction < ApplicationRecord
         zip: row["zip"],
         selling_date: row["selling_date"]
       )
-      byebug
       create(row) if transaction.new_record?
     end
   end
