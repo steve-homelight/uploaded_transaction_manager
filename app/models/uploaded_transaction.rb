@@ -1,6 +1,6 @@
 class UploadedTransaction < ApplicationRecord
   require 'csv'
-  paginates_per 10
+  paginates_per 12
 
   belongs_to :listing_agent, required: false, class_name: "Agent"
   belongs_to :selling_agent, required: false, class_name: "Agent"

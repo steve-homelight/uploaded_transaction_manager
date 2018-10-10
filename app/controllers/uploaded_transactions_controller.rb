@@ -7,7 +7,6 @@ class UploadedTransactionsController < ApplicationController
   def create
     @agent = Agent.find(params[:agent_id])
     @uploaded_transaction = @agent.uploaded_seller_transactions.create(uploaded_transaction_params)
-    puts "creating ..."
     if @uploaded_transaction.save
       redirect_to agent_path(@agent), notice: "Transaction saved!"
     else
